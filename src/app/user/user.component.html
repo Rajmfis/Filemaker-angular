@@ -1,0 +1,152 @@
+<html>
+
+<head>
+  <!-- <link rel="stylesheet" href="../../../node_modules/bootstrap/dist/css/bootstrap.css"> -->
+
+</head>
+
+<body>
+  <nav class="nav navbar navbar-expand-lg navbar-light " style="background-color: #68a5d1;">
+    <a class="navbar-brand" href="#" style="font-family: \'Courgette\', cursive;font-size: xx-large;">Home</a>'
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+      aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation"> <span
+        class="navbar-toggler-icon"></span>'
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"> <a class="nav-link" id="delbtn" href="#"><span
+              style="color:whitesmoke;font-size: x-large;">DeleteUser</span></a>
+        </li>
+        <li class="nav-item needmargin"> <a class="nav-link" href="#"><span
+              style="color:whitesmoke;font-size:x-large;">Subscription</span></a>
+        </li>
+        <li class="nav-item needmargin">
+
+          <a class="nav-link"> <span style="color:whitesmoke;font-size:x-large;" (click)='OnLogout()'>Logout</span></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="profile-info" style="margin-top: 10px;margin-left: 5px;margin-right: 5px;">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Welcome </h5>
+            <p class="card-text">You are subscribed for our Services</p>
+            <a href="#" class="btn btn-primary">Explore more about new Services</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body" ngFor="let user of users">
+            <h5 class="card-title">Profile Details: </h5>
+            <p class="card-text">Name: {{users.firstname}} {{users.lastname}}</p>
+            <p class="card-text">Email: {{users.email}}</p>
+            <p class="card-text">Contact Details: {{users.Contactno}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="row" id="activity">
+    <div class="col-sm-6">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="collapse" style="font-weight:bold;" href="#collapseExample" role="button"
+            aria-expanded="false" aria-controls="collapseExample">
+            Please click here to record your activity
+          </a>
+        </li>
+      </ul>
+
+      <div class="collapse" id="collapseExample">
+        <div class="card card-body " id="">
+          <form  method="POST" [formGroup]="myForm" (submit)="activityrecord($event);myForm.reset();" id="activityform" class="container">
+            <div class="form-group">
+              <label for="firstname">Activity Name</label>
+              <input type="text" id="activityname" [(ngModel)]="inputVar" class="form-control" name="activity" formControlName="activity">
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-6">
+                <label for="firstname">Start date</label>
+                <input type="date" id="startdate" class="form-control" name="startdate" formControlName="startdate">
+              </div>
+              <div class="col-sm-6">
+                <label for="firstname">End date</label>
+                <input type="date" id="enddate" class="form-control" name="enddate" formControlName="enddate">
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-6">
+                <label for="firstname">Start time</label>
+                <input type="time" id="starttime" class="form-control" name="starttime" formControlName="starttime">
+              </div>
+              <div class="col-sm-6">
+                <label for="firstname">End time</label>
+                <input type="time" id="endtime" class="form-control" name="endtime" formControlName="endtime">
+              </div>
+            </div>
+            <input type="submit" class=" btn btn-primary">
+            <button type="button" class=" btn btn-primary btn-large" (click)="resetForm();" value="Reset form" style="margin-left:20px">Please click here to reset the form activity</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+          <!-- (submit)="activityrecord($event)" -->
+          <a class="nav-link" data-toggle="collapse" role="button" (click)="getActivityRecords($event)" href="#activitycollapse" style="font-weight:bold;" role="button"
+            aria-expanded="false">
+            Your past activities record
+          </a></li>
+      </ul>
+      <div class="collapse" id="activitycollapse">
+        <div class="card card-body " style="height: 330px; overflow-y:scroll;" role="tabpanel" aria-labelledby="table">
+          <br>
+          <table style="border:1;" id="activitytable" class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">Activity Name</th>
+                <th scope="col">Start Date</th>
+                <th scope="col">End Date</th>
+                <th scope="col">Start time</th>
+                <th scope="col">End time</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+              </tr>
+            </thead>
+            <tbody >
+              <tr *ngFor="let data of cardData;let i = index" (click)="setClickedRow(i)" [class.active]="i == selectedRow">
+                <td id="name">{{data.activity_name}}</td>
+                <td id="sdate">{{data.start_date}}</td>
+                <td id="edate">{{data.end_date}}</td>
+                <td id="stime">{{data.start_time}}</td>
+                <td id="etime">{{data.end_time}}</td>
+                <td><button type="button" (click)="editRecord(data)" data-toggle="collapse" href="#collapseExample" role="button"
+                  aria-expanded="false" aria-controls="collapseExample" >Edit</button></td>
+                <td><button type="button" (click)="deleteActivity(data)">Delete</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>

@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'filemaker-angular'`, () => {
+  it(`should have as title 'first-application'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('filemaker-angular');
+    expect(app.title).toEqual('first-application');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('filemaker-angular app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('first-application app is running!');
   });
 });

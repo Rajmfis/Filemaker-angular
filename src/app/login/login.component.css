@@ -1,0 +1,13 @@
+
+.container{
+    padding: 100px 100px;
+    background-color: rgb(139, 139, 190);
+    align-items: center;
+}
+body{
+    background-color: burlywood;
+    height: 100%;
+}
+.fillcolor{
+    background-color: burlywood;
+}

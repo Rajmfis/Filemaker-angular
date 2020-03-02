@@ -1,0 +1,12 @@
+.container{
+    padding: 10px 50px;
+    background-color: rgb(139, 139, 190);
+    align-items: center;
+}
+hr{
+    background-color: burlywood;
+    height: 2px;
+}
+label{
+    font-weight: 500;
+}
