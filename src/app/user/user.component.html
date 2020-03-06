@@ -5,7 +5,7 @@
 
 </head>
 
-<body>
+<body >
   <nav class="nav navbar navbar-expand-lg navbar-light " style="background-color: #68a5d1;">
     <a class="navbar-brand" href="#" style="font-family: \'Courgette\', cursive;font-size: xx-large;">Home</a>'
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
@@ -51,7 +51,7 @@
     </div>
   </div>
   <br>
-  <div class="row" id="activity">
+  <div class="row" id="activity" (mouseover)="getActivityRecords($event)">
     <div class="col-sm-6">
       <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item">
@@ -99,12 +99,12 @@
       <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item">
           <!-- (submit)="activityrecord($event)" -->
-          <a class="nav-link" data-toggle="collapse" role="button" (click)="getActivityRecords($event)" href="#activitycollapse" style="font-weight:bold;" role="button"
+          <a class="nav-link" data-toggle="collapse" role="button" href="#activitycollapse" style="font-weight:bold;" role="button"
             aria-expanded="false">
             Your past activities record
           </a></li>
       </ul>
-      <div class="collapse" id="activitycollapse">
+      <div class="collapse" id="activitycollapse" >
         <div class="card card-body " style="height: 330px; overflow-y:scroll;" role="tabpanel" aria-labelledby="table">
           <br>
           <table style="border:1;" id="activitytable" class="table table-bordered">
@@ -120,7 +120,7 @@
               </tr>
             </thead>
             <tbody >
-              <tr *ngFor="let data of cardData;let i = index" (click)="setClickedRow(i)" [class.active]="i == selectedRow">
+              <tr *ngFor="let data of cardData;let i = index" (mouseover)="setClickedRow(i)" [class.active]="i == selectedRow">
                 <td id="name">{{data.activity_name}}</td>
                 <td id="sdate">{{data.start_date}}</td>
                 <td id="edate">{{data.end_date}}</td>
