@@ -1,12 +1,19 @@
 
 .container{
+    border-radius: 50px;
+    margin-top: 100px;
     padding: 100px 100px;
-    background-color: rgb(139, 139, 190);
+    /* background-color: rgb(139, 139, 190); */
+    background-image: url("image.jpg");   
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     align-items: center;
 }
 body{
     background-color: burlywood;
-    height: 100%;
+    min-height: 100%;
+    /* width: 100% !important; */
 }
 .fillcolor{
     background-color: burlywood;

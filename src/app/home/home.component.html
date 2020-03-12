@@ -2,7 +2,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Oswald&display=swap" rel="stylesheet">
 </head>
-
+<body>
 <nav class="navbar navbar-expand-sm bg-light" style="background-color: #59a4da;">
     <ul class="navbar-nav">
       <li class="nav-item">
@@ -19,7 +19,7 @@
     </ul>
 </nav>
 <div class="container" id="form-content">
-    <p style="font-family: 'Montserrat', sans-serif; font-size: x-large;color: blanchedalmond;padding-left: 350px;">Welcome to the home page</p>
+    <p style="font-family: 'Montserrat', sans-serif; font-size: x-large;color: blanchedalmond;text-align: center;">Welcome to the home page</p>
   <h3>Please enter the details below</h3>
   <hr>
 <form [formGroup]="registerform" (submit)="registeruser($event)">
@@ -83,3 +83,4 @@
   </button>
 </form>
 </div>
+</body>

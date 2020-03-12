@@ -12,6 +12,8 @@ import { LogoutComponent } from './logout/logout.component';
 import {AuthGuard} from './auth.guard';
 import {CanActivate, ActivatedRoute, ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router';
 import { DeleteuserComponent } from './deleteuser/deleteuser.component';
+import { AdminComponent } from './admin/admin.component';
+// import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 
 
 @NgModule({
@@ -22,9 +24,10 @@ import { DeleteuserComponent } from './deleteuser/deleteuser.component';
     HomeComponent,
     ProfileComponent,
     LogoutComponent,
-    DeleteuserComponent
+    DeleteuserComponent,
+    AdminComponent
   ],
-  imports: [
+  imports: [//Ng4LoadingSpinnerModule.forRoot(),
     BrowserModule,HttpClientModule,FormsModule, ReactiveFormsModule,RouterModule.forRoot([{
       path:'',
       component:HomeComponent
@@ -41,6 +44,10 @@ import { DeleteuserComponent } from './deleteuser/deleteuser.component';
     {
       path:'profile',
       component:ProfileComponent
+    },
+    {
+      path:'admin',
+      component:AdminComponent
     },
     
   ])

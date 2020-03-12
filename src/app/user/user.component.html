@@ -1,9 +1,4 @@
-<html>
 
-<head>
-  <!-- <link rel="stylesheet" href="../../../node_modules/bootstrap/dist/css/bootstrap.css"> -->
-
-</head>
 
 <body >
   <nav class="nav navbar navbar-expand-lg navbar-light " style="background-color: #68a5d1;">
@@ -15,7 +10,7 @@
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item"> <a class="nav-link" id="delbtn" href="#"><span
-              style="color:whitesmoke;font-size: x-large;">DeleteUser</span></a>
+              style="color:whitesmoke;font-size: x-large;" (click)="fullScreen()">Go Full screen</span></a>
         </li>
         <li class="nav-item needmargin"> <a class="nav-link" href="#"><span
               style="color:whitesmoke;font-size:x-large;">Subscription</span></a>
@@ -51,7 +46,7 @@
     </div>
   </div>
   <br>
-  <div class="row" id="activity" (mouseover)="getActivityRecords($event)">
+  <div class="row" id="activity" (click)="getActivityRecords($event)">
     <div class="col-sm-6">
       <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item">
@@ -107,7 +102,7 @@
       <div class="collapse" id="activitycollapse" >
         <div class="card card-body " style="height: 330px; overflow-y:scroll;" role="tabpanel" aria-labelledby="table">
           <br>
-          <table style="border:1;" id="activitytable" class="table table-bordered">
+          <table style="border:1;" id="activitytable" class="table table-bordered" (scroll)="show()">
             <thead>
               <tr>
                 <th scope="col">Activity Name</th>
@@ -131,6 +126,7 @@
                 <td><button type="button" (click)="deleteActivity(data)">Delete</button></td>
               </tr>
             </tbody>
+            <!-- <ng4-loading-spinner></ng4-loading-spinner> -->
           </table>
         </div>
       </div>
@@ -148,5 +144,3 @@
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
 </body>
-
-</html>

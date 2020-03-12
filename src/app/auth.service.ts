@@ -80,6 +80,10 @@ export class AuthService {
     return this.http.delete('http://localhost:8080/activity',options);
   }
 
+  adminLogin(email,password){
+    
+  }
+
 
   logout() {
     this.router.navigate(['/login']);

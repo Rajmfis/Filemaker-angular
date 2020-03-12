@@ -3,6 +3,8 @@ import {AuthService} from '../auth.service';
 import { FormsModule, ReactiveFormsModule,FormBuilder,FormGroup } from '@angular/forms';
 
 import { Router } from '@angular/router';
+// import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';private spinnerService: Ng4LoadingSpinnerService,
+
 
 @Component({
   selector: 'app-user',
@@ -40,6 +42,11 @@ export class UserComponent implements OnInit {
     this.id=JSON.parse(localStorage.getItem("users")).ID_Account;
   }
   
+  // show(){
+  //   this.spinnerService.show();
+  //   setTimeout(()=>this.spinnerService.hide(),3000)
+  // }
+
   getActivityRecords(event){
     event.preventDefault();
     this.records=this.auth.displayActivityRecord(this.id).subscribe((response)=>{

@@ -1,0 +1,36 @@
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm bg-light" style="background-color: #59a4da;">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" ><p style="font-family: 'Montserrat', sans-serif; font-size: large;font-weight:bold;">Admin Login Page</p></a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto" style="padding-right: 80px;">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="" ><p style="font-family: 'Montserrat', sans-serif; font-size: large;font-weight:bold;">Go to Home</p></a>
+            </li>
+          </ul>
+    </nav><br>
+    <div class="container" style="color: rgb(20, 20, 20);"><br>
+     <h4>Please enter your credentials</h4> <br>      
+        <form (submit)="loginAdmin($event)">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control"  id="adminId" aria-describedby="emailHelp">
+                <small id="emailHelp" class="form-text" style="font-weight: bold;">** We'll never share your email with anyone
+                    else**</small>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="adminPwd" >
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form><br><br>
+    </div>
+</body>
