@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../auth.service';
 import { FormsModule, ReactiveFormsModule,FormBuilder,FormGroup } from '@angular/forms';
+import {MatTableDataSource} from '@angular/material/table';
 
 import { Router } from '@angular/router';
 // import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';private spinnerService: Ng4LoadingSpinnerService,
@@ -11,6 +12,7 @@ import { Router } from '@angular/router';
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css']
 })
+
 export class UserComponent implements OnInit {
 
   myForm: FormGroup;
@@ -31,15 +33,18 @@ export class UserComponent implements OnInit {
   selectedRow:any;
   inputVar:string;
   id:any;
+  value :string;
   users:any;
   records:any;
   edit=false;
   recordid="";
   private cardData: string [];
+  datasource:any;
   ngOnInit(): void {
     this.users=JSON.parse(localStorage.getItem("users"));
     this.auth.data=JSON.parse(localStorage.getItem("users"));
     this.id=JSON.parse(localStorage.getItem("users")).ID_Account;
+    this.value= 'Clear me';
   }
   
   // show(){
@@ -51,7 +56,8 @@ export class UserComponent implements OnInit {
     event.preventDefault();
     this.records=this.auth.displayActivityRecord(this.id).subscribe((response)=>{
       if(response.success==1){
-        this.cardData = response.activities as string [];
+        this.cardData=response.activities as string [];
+        this.datasource = new MatTableDataSource(this.cardData);
       }
     })
   }

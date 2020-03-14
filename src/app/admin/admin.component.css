@@ -24,3 +24,7 @@ body:not(nav){
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.full-width-field{
+    width: 100%;
+}

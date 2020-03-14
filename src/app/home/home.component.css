@@ -1,8 +1,15 @@
 
 body{
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    min-height: 100%;
+    /* width: 100%; */
     background-color: rgb(139, 139, 190);
+}
+.full-width-field {
+    width: 100%;
+ }
+.mat-input-wrapper{
+    width:400px !important;
 }
 .container{
     border-radius: 50px;
@@ -19,6 +26,6 @@ hr{
     background-color: burlywood;
     height: 2px;
 }
-label{
+label,mat-label{
     font-weight: 500;
 }

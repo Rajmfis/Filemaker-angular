@@ -20,21 +20,27 @@
 </nav>
 <div class="container" id="form-content">
     <p style="font-family: 'Montserrat', sans-serif; font-size: x-large;color: blanchedalmond;text-align: center;">Welcome to the home page</p>
-  <h3>Please enter the details below</h3>
+  <h3 style="font-family: 'Montserrat', sans-serif; font-size: large;color: blanchedalmond;">Please enter the details below</h3>
   <hr>
 <form [formGroup]="registerform" (submit)="registeruser($event)">
-  <div class="form-group">
+  <!-- <div class="form-group">
       <label>First Name:</label>
       <input class="form-control"  id="fname"  formControlName="firstname" type="text">
-  </div>
+  </div> -->
+  <mat-form-field class="full-width-field" appearance="fill" >
+    <mat-label style="color: black;">First Name</mat-label>
+      <input matInput id="fname" style="font-weight: 500; font-size: larger;" formControlName="firstname" type="text" >
+    </mat-form-field> 
   <div *ngIf="registerform.controls['firstname'].invalid && (registerform.controls['firstname'].dirty || registerform.controls['firstname'].touched)" class="alert alert-danger">
       <div *ngIf="registerform.controls['firstname'].errors.required">
         FirstName is required.
       </div>
   </div>
   <div class="form-group">
-      <label>Last Name</label>
-      <input class="form-control" id="lname" formControlName="lastname" type="text">
+    <mat-form-field class="full-width-field" appearance="fill" >
+      <mat-label style="color: black;">Last Name</mat-label>
+        <input matInput  id="lname" formControlName="lastname" type="text" style="font-weight: 500; font-size: larger;">
+      </mat-form-field> 
   </div>
   <div *ngIf="registerform.controls['lastname'].invalid && (registerform.controls['lastname'].dirty || registerform.controls['lastname'].touched)" class="alert alert-danger">
       <div *ngIf="registerform.controls['lastname'].errors.required">
@@ -42,8 +48,10 @@
       </div>
   </div>
   <div class="form-group">
-    <label>Contact No</label>
-    <input class="form-control"  id="contactno"  formControlName="phone" type="text">
+    <mat-form-field class="full-width-field" appearance="fill" >
+      <mat-label style="color: black;">Contact no</mat-label>
+        <input matInput id="contactno" formControlName="phone" type="text" style="font-weight: 500; font-size: larger;">
+    </mat-form-field>
   </div>
   <div *ngIf="registerform.controls['phone'].invalid && (registerform.controls['phone'].dirty || registerform.controls['phone'].touched)" class="alert alert-danger">
     <div *ngIf="registerform.controls['phone'].errors.required">
@@ -51,8 +59,10 @@
     </div>
   </div>
   <div class="form-group">
-    <label>EmailId</label>
-    <input class="form-control"  id="emailid"  formControlName="email" type="text">
+    <mat-form-field class="full-width-field" appearance="fill" >
+      <mat-label style="color: black;">Email Id</mat-label>
+        <input matInput  id="emailid"  formControlName="email" type="text" style="font-weight: 500; font-size: larger;">
+    </mat-form-field>
   </div>
   <div *ngIf="registerform.controls['email'].invalid && (registerform.controls['email'].dirty || registerform.controls['email'].touched)" class="alert alert-danger">
     <div *ngIf="registerform.controls['email'].errors.required">
@@ -60,8 +70,10 @@
     </div>
   </div>
   <div class="form-group">
-    <label>Created by admin</label>
-    <input class="form-control" placeholder="Enter admin email"  id="adminemail"  formControlName="admin" type="text">
+    <mat-form-field class="full-width-field" appearance="fill" >
+      <mat-label style="color: black;">Admin Email</mat-label>
+        <input matInput placeholder="Enter admin email" id="adminemail" formControlName="admin" type="text" style="font-weight: 500; font-size: larger;">
+    </mat-form-field>
   </div>
   <div *ngIf="registerform.controls['admin'].invalid && (registerform.controls['admin'].dirty || registerform.controls['admin'].touched)" class="alert alert-danger">
     <div *ngIf="registerform.controls['admin'].errors.required">
@@ -69,8 +81,10 @@
     </div>
   </div>
   <div class="form-group">
-    <label>Password</label>
-    <input class="form-control"  id="pwd"  formControlName="password" type="password">
+    <mat-form-field class="full-width-field" appearance="fill" >
+      <mat-label style="color: black;">Password</mat-label>
+        <input matInput placeholder="Enter admin email" id="pwd" formControlName="password" type="password"style="font-weight: 500; font-size: larger;">
+    </mat-form-field>
   </div>
   <div *ngIf="registerform.controls['password'].invalid && (registerform.controls['password'].dirty || registerform.controls['password'].touched)" class="alert alert-danger">
     <div *ngIf="registerform.controls['password'].errors.required">
@@ -82,5 +96,7 @@
       Submit
   </button>
 </form>
+
 </div>
+
 </body>

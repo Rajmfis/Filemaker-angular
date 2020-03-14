@@ -13,7 +13,14 @@ import {AuthGuard} from './auth.guard';
 import {CanActivate, ActivatedRoute, ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router';
 import { DeleteuserComponent } from './deleteuser/deleteuser.component';
 import { AdminComponent } from './admin/admin.component';
-// import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatCardModule} from '@angular/material/card';
+import {MatTableModule} from '@angular/material/table';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatMomentDateModule } from "@angular/material-moment-adapter";
 
 
 @NgModule({
@@ -27,8 +34,8 @@ import { AdminComponent } from './admin/admin.component';
     DeleteuserComponent,
     AdminComponent
   ],
-  imports: [//Ng4LoadingSpinnerModule.forRoot(),
-    BrowserModule,HttpClientModule,FormsModule, ReactiveFormsModule,RouterModule.forRoot([{
+  imports: [
+    BrowserModule,MatMomentDateModule,HttpClientModule,MatDatepickerModule,MatTableModule,MatCardModule,MatInputModule,MatGridListModule,MatFormFieldModule,FormsModule, ReactiveFormsModule,RouterModule.forRoot([{
       path:'',
       component:HomeComponent
     },
@@ -50,9 +57,10 @@ import { AdminComponent } from './admin/admin.component';
       component:AdminComponent
     },
     
-  ])
+  ]), BrowserAnimationsModule
   ],
-  providers: [{
+  providers: [MatDatepickerModule,
+    {
     provide: 'AuthGuard',
     useValue: (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => true
   }],
